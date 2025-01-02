@@ -3,7 +3,7 @@ Teneo bot is a simple tool designed to automate the node interaction.
 - Register Link : [Register](https://dashboard.teneo.pro/auth/signup)
 - Use this reff code to get extra points : 
 ```bash
-YDEJp
+zGg3T
 ```
 - Download Extension : [Extension](https://chromewebstore.google.com/detail/teneo-community-node/emcclcoaglgcpoognfiggmhnhgabppkm)
 - 
