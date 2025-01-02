@@ -116,7 +116,7 @@ function displayHeader() {
   const headerLines = [
     "<|============================================|>",
     "                  Teneo Bot                   ",
-    "          TG - Airdrop_tricksyt           ",
+    "          TG - SCRIPTHUB00                    ",
     "<|============================================|>"
   ];
 
