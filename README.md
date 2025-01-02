@@ -17,11 +17,11 @@ YDEJp
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/airdroptricks/teneo-airdrop_tricksyt.git
+   git clone https://github.com/Mittyadav/Teneo.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd teneo-airdrop_tricksyt
+   cd Teneo
    ```
 4. Install the necessary dependencies:
    ```bash
