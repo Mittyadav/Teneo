@@ -21,6 +21,7 @@ let proxies = [];
 let accessTokens = [];
 let accounts = [];
 let useProxy = false;
+let enableAutoRetry = false;
 let currentAccountIndex = 0;
 
 function loadAccounts() {
@@ -80,10 +81,26 @@ function promptUseProxy() {
   });
 }
 
+function promptEnableAutoRetry() {
+  return new Promise((resolve) => {
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout
+    });
+
+    rl.question('Do you want to enable auto-retry for account errors? (y/n): ', (answer) => {
+      enableAutoRetry = answer.toLowerCase() === 'y';
+      rl.close();
+      resolve();
+    });
+  });
+}
+
 async function initialize() {
   loadAccounts();
   loadProxies();
   await promptUseProxy();
+  await promptEnableAutoRetry();
 
   if (useProxy && proxies.length < accounts.length) {
     console.error('Not enough proxies for the number of accounts. Please add more proxies.');
@@ -116,7 +133,7 @@ function displayHeader() {
   const headerLines = [
     "<|============================================|>",
     "                  Teneo Bot                   ",
-    "          github.com/Mittyadav                ",
+    "            https://t.me/scripthub00          ",
     "<|============================================|>"
   ];
 
@@ -430,6 +447,11 @@ async function getUserId(index) {
     }
 
     console.error(`Error for Account ${index + 1}:`, errorMessage);
+
+    if (enableAutoRetry) {
+      console.log(`Retrying account ${index + 1} in 3 minutes...`);
+      setTimeout(() => getUserId(index), 180000);
+    }
   }
 }
 
